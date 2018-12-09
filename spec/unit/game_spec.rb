@@ -5,7 +5,7 @@ describe Game do
 
   describe '#initialize' do
     it 'token is at square one' do
-      expect(game.token.position).to eq(1)
+      expect(game.token).to eq(1)
     end
   end
 end
