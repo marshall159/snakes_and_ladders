@@ -2,6 +2,7 @@ require 'game'
 
 describe Game do
   let(:die) { double(:die) }
+  let(:player) { double(:player) }
   subject(:game) { described_class.new(die: die) }
 
   describe '#initialize' do
@@ -43,8 +44,9 @@ describe Game do
       end
 
       it 'returns the Players name if given' do
-        game = Game.new(name: 'Aneel', die: die)
+        game = Game.new(player: player, die: die)
         allow(die).to receive(:roll).and_return(4)
+        allow(player).to receive(:name).and_return('Aneel')
         24.times { game.move }
         allow(die).to receive(:roll).and_return(3)
 
