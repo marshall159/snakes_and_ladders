@@ -20,5 +20,14 @@ describe Game do
 
       expect(game.token).to eq(6)
     end
+
+    it 'consecutive rolls of the die move token accordingly' do
+      allow(die).to receive(:roll).and_return(5, 3)
+
+      game.move
+      game.move
+
+      expect(game.token).to eq(9)
+    end
   end
 end
