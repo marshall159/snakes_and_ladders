@@ -13,6 +13,7 @@ class Game
   def move
     roll = die.roll
     @token += roll if valid_move?(roll)
+    'Player has won' if winner?
   end
 
   def winner?

@@ -29,6 +29,19 @@ describe Game do
 
       expect(game.token).to eq(9)
     end
+
+    context 'game won' do
+      it 'returns a message that the player has won' do
+        allow(die).to receive(:roll).and_return(4)
+        24.times { game.move }
+        allow(die).to receive(:roll).and_return(3)
+
+
+        result = game.move
+
+        expect(result).to eq('Player has won')
+      end
+    end
   end
 
   describe '#winner?' do
