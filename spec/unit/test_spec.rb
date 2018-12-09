@@ -1,3 +1,5 @@
+require 'test'
+
 describe Test do
 
   it 'should do something' do
