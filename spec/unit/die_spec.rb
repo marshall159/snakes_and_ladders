@@ -1,3 +1,5 @@
+require 'die'
+
 describe Die do
   subject(:die) { described_class.new }
 

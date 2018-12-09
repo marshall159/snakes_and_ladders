@@ -11,15 +11,15 @@ describe 'Dice rolls' do
   end
 
   def given_there_is_a_die
-    die = Die.new
+    @die = Die.new
   end
 
   def  when_the_die_is_rolled
     srand(1)
-    result = die.roll
+    @result = @die.roll
   end
 
   def then_the_die_returns_a_number_between_one_and_six
-    expect(result).to eq(6)
+    expect(@result).to eq(6)
   end
 end
