@@ -2,7 +2,7 @@ require 'game'
 
 describe Game do
   let(:die) { double(:die) }
-  subject(:game) { described_class.new(die) }
+  subject(:game) { described_class.new(die: die) }
 
   describe '#initialize' do
     it 'token is at square one' do
@@ -39,7 +39,19 @@ describe Game do
 
         result = game.move
 
-        expect(result).to eq('Player has won')
+        expect(result).to eq('Player One has won')
+      end
+
+      it 'returns the Players name if given' do
+        game = Game.new(name: 'Aneel', die: die)
+        allow(die).to receive(:roll).and_return(4)
+        24.times { game.move }
+        allow(die).to receive(:roll).and_return(3)
+
+
+        result = game.move
+
+        expect(result).to eq('Player Aneel has won')
       end
     end
   end

@@ -15,7 +15,7 @@ describe 'Player wins' do
 
   def given_the_game_has_started
     @die = double(:die, roll: 4)
-    @game = Game.new(@die)
+    @game = Game.new(die: @die)
   end
 
   def when_the_token_is_on_square_97
@@ -29,6 +29,6 @@ describe 'Player wins' do
   end
 
   def then_the_player_has_won
-    expect(@result).to eq('Player has won')
+    expect(@result).to eq('Player One has won')
   end
 end

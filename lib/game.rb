@@ -3,17 +3,18 @@ require_relative 'die'
 class Game
   LAST_SQUARE = 100
 
-  attr_reader :token, :die
+  attr_reader :token, :die, :name
 
-  def initialize(die = Die.new)
-    @die = die
+  def initialize(input = {})
+    @name = input.fetch(:name, 'One')
+    @die = input.fetch(:die, Die.new)
     @token = 1
   end
 
   def move
     roll = die.roll
     @token += roll if valid_move?(roll)
-    'Player has won' if winner?
+    "Player #{name} has won" if winner?
   end
 
   def winner?
