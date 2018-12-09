@@ -2,6 +2,8 @@
 # I want to move my token based on the roll of a die
 # So that there is an element of chance in the game
 
+require 'die'
+
 describe 'Dice rolls' do
 
   it 'produces a number between one and six' do
