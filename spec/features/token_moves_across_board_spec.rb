@@ -18,15 +18,15 @@ describe 'Token' do
   end
 
   def and_the_token_is_on_the_board
-    @game.token.position
+    @game.token
   end
 
   def when_the_token_is_moved
-    @game.turn
+    @game.move
   end
 
   def then_the_token_moves_to_another_square
-    expect { @game.turn }.to change {@game.token.position}.by_at_least(1)
-    expect { @game.turn }.to change {@game.token.position}.by_at_most(6)
+    expect { @game.move }.to change {@game.token}.by_at_least(1)
+    expect { @game.move }.to change {@game.token}.by_at_most(6)
   end
 end
