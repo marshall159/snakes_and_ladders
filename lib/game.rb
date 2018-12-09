@@ -9,6 +9,13 @@ class Game
   end
 
   def move
-    @token += die.roll
+    roll = die.roll
+    if token + roll <= 100
+      @token += roll
+    end
+  end
+
+  def winner?
+    token == 100
   end
 end

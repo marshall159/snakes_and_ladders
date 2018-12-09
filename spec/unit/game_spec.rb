@@ -52,6 +52,7 @@ describe Game do
         game.move
 
         expect(game.winner?).to eq(false)
+        expect(game.token).to eq(97)
       end
     end
   end
