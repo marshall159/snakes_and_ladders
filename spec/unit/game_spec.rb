@@ -30,4 +30,29 @@ describe Game do
       expect(game.token).to eq(9)
     end
   end
+
+  describe '#winner?' do
+    before :each do
+      allow(die).to receive(:roll).and_return(4)
+      24.times { game.move }
+    end
+
+    context 'true' do
+      it 'returns true if the token has landed on square 100' do
+        allow(die).to receive(:roll).and_return(3)
+        game.move
+
+        expect(game.winner?).to eq(true)
+      end
+    end
+
+    context 'false' do
+      it 'returns false if the token has not reached square 100' do
+        allow(die).to receive(:roll).and_return(4)
+        game.move
+
+        expect(game.winner?).to eq(false)
+      end
+    end
+  end
 end
