@@ -1,6 +1,8 @@
 require_relative 'die'
 
 class Game
+  LAST_SQUARE = 100
+
   attr_reader :token, :die
 
   def initialize(die = Die.new)
@@ -14,12 +16,12 @@ class Game
   end
 
   def winner?
-    token == 100
+    token == LAST_SQUARE
   end
 
   private
 
   def valid_move?(roll)
-    token + roll <= 100
+    token + roll <= LAST_SQUARE
   end
 end
