@@ -5,6 +5,8 @@ describe Game do
 
   describe '#initialize' do
     it 'token is at square one' do
+      game = Game.new
+
       expect(game.token).to eq(1)
     end
   end
